@@ -47,4 +47,14 @@ class Controller
         // create new "model" (and pass the database connection)
         $this->model = new Model($this->db);
     }
+    
+    /**
+     * load the view
+     */
+    public function render($class_name,$method)
+    {
+        require APP . 'view/_templates/header.php';
+        require APP . 'view/'.$class_name.'/'.$method.'.php';
+        require APP . 'view/_templates/footer.php';
+    }
 }
